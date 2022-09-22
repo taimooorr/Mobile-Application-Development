@@ -46,13 +46,21 @@ Who("Taimoor");
  * create arrow function that accept any number of arguments
  * separate even and odd numbers and return an object with two properties even and odd
  */
-let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-let even = arr.filter(function (num) {
-    return num % 2 == 0;
-});
-let odd = arr.filter(function (num) {
-    return num % 2 != 0;
-});
+
 /**
  * Todo: Complete the function
  */
+let OBJ_1 = (...args) => {
+    let arr = []
+    args.push(arr)
+    let Even = [];
+    let Odd = [];
+    arr.map((number) => {
+        if (number % 2 == 0) { Even.push(number / 2); }
+        else {
+            Odd.push(number * 2);
+        }
+    });
+    return { ODD: Odd, EVEN: Even };
+}
+OBJ_1(1,3,5,7,8,9,10,11,12,13,18,99,100);
