@@ -24,9 +24,11 @@ var student = {
  * Task 2
  * Program to list properties of a javascript object 
  */
-console.log(Object.keys(student));
 
-
+let Ky = Object.keys(student);
+let Val = Object.values(student);
+console.log(Val);
+console.log(Ky);
 /**
  * Task 3
  * 
