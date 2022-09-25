@@ -1,4 +1,5 @@
 const { Console } = require('console');
+const { format } = require('path');
 const { stdin } = require('process');
 
 /**
@@ -29,9 +30,11 @@ console.log(sumOfDigits(123456789));
  */
 function evenSum(num){
     // we can take arguments as a whole number like num instead of args and then convert it to string and then split it
-    let sumStr = num.toString();
-    let sumArr = sumStr.split("");
-    let EvenSum = sumArr.map((number) => {
+    arr = []
+    for (let n of num) {
+        arr2.push(parseInt(n));
+    }
+    let EvenSum = arr.map((number) => {
         let result = 0;
         if (parseInt(number) % 2 == 0) {
             result+= parseInt(number);
@@ -58,21 +61,27 @@ console.log(squaresAndCubes());
 /**
  * Problem 5
  */
-function StrOrNum(StrNum){
-    if(isNaN(StrNum)){
+function StrOrNum(StrONum){
+    if(isNaN(StrONum)){
         // lets find The position in the string of the left-most vowel in the string
-        let vowels = ['a','e','i','o','u','A','E','I','O','U'];
-        let result = StrNum.split("").indexOf((char) => {
-            return vowels.includes(char);
-        });
-        return result;
+        let vals = ""
+        vals = StrONum;
+        vals = vals.toLocaleLowerCase(); //Every string to lower case
+        let position;
+        for (let i = 0; i < vals.length; i++) {
+            if (vals[i] === 'a' || vals[i] === 'e' || vals[i] === 'i' || vals[i] === 'o' || vals[i] == 'u') {
+                position = `Postion of most left${i}`;
+                break;
+            }
+        }
+        return position;
     }
     else {
-        let reversedNum =  parseFloat(StrNum.toString().split('').reverse().join('')) * Math.sign(StrNum)
+        let reversedNum =  parseFloat(StrONum.toString().split('').reverse().join('')) * Math.sign(StrONum)
         return reversedNum;
 }
 }
-console.log(StrOrNum("taimoor"));
+console.log(StrOrNum("dfdfdfoi"));
 
 /**
  * Problem 6
@@ -87,15 +96,16 @@ const readline = require('readline').createInterface({
     })
 guess = ()=>{
     let randomNum = Math.floor(Math.random() * 10) + 1;
-    readline.question(`Enter a number between 1 to 10: `, (number) => {
-
-        if (number == randomNum) {
-            console.log("You WIN");
-        }
-        else {
-            console.log("Not matched");
-        }
-    })
+    readline.question(`What's your guess`, (number) =>{
+        console.log(`You guessed ${number}`);
+    
+    if (number == randomNum) {
+        console.log("You guessed it right!");
+    }
+    else {
+        console.log("You guessed it wrong!");
+    }
+    });
 }
 guess();
 
@@ -117,3 +127,13 @@ let check =(arr)=> {
     }
 }
 console.log(check([10, 20, 30, 40]));
+/**
+ * Problem 8
+ * 
+ * 
+ */
+let sortString = (str) => {
+    let sortedStr = str.split("").sort().join("");
+    return sortedStr;
+}
+console.log(sortString("wbcda"));
