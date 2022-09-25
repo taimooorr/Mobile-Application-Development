@@ -30,17 +30,18 @@ console.log(sumOfDigits(123456789));
  */
 function evenSum(num){
     // we can take arguments as a whole number like num instead of args and then convert it to string and then split it
-    arr = []
-    for (let n of num) {
-        arr2.push(parseInt(n));
-    }
-    let EvenSum = arr.map((number) => {
-        let result = 0;
-        if (parseInt(number) % 2 == 0) {
-            result+= parseInt(number);
+    arr=[];
+    let sumStr = num.toString();
+    let sumArr = sumStr.split("");
+    for (let i = 0; i <= sumArr.length; i++) {
+        if (i % 2 == 0) {
+            arr.push(i);
         }
-    });
-    return EvenSum ;
+    }
+    console.log(arr);
+    let sumOfDigits = arr.reduce((a, b) => parseInt(a) + parseInt(b));
+    return sumOfDigits;
+
 }
 console.log(evenSum(23617));
 /**
