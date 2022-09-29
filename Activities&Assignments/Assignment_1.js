@@ -83,7 +83,6 @@ function StrOrNum(StrONum){
 }
 }
 console.log(StrOrNum("dfdfdfoi"));
-
 /**
  * Problem 6
  */
