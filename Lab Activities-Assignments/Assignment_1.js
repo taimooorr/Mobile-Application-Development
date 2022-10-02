@@ -16,7 +16,7 @@ console.log(kthDigit(23617, 4));
  * Problem 2
  */
 function sumOfDigits(...args) {
-     // we can take arguments as a whole number like num instead of args and then convert it to string and then split it
+    // we can take arguments as a whole number like num instead of args and then convert it to string and then split it
     let sumStr = args.toString();
     let sumArr = sumStr.split("");
     let sumOfDigits = sumArr.reduce((a, b) => parseInt(a) + parseInt(b));
@@ -28,9 +28,9 @@ console.log(sumOfDigits(123456789));
  * Problem 3
  * 
  */
-function evenSum(num){
+function evenSum(num) {
     // we can take arguments as a whole number like num instead of args and then convert it to string and then split it
-    arr=[];
+    arr = [];
     let sumStr = num.toString();
     let sumArr = sumStr.split("");
     for (let i = 0; i <= sumArr.length; i++) {
@@ -62,8 +62,8 @@ console.log(squaresAndCubes());
 /**
  * Problem 5
  */
-function StrOrNum(StrONum){
-    if(isNaN(StrONum)){
+function StrOrNum(StrONum) {
+    if (isNaN(StrONum)) {
         // lets find The position in the string of the left-most vowel in the string
         let vals = ""
         vals = StrONum;
@@ -78,9 +78,9 @@ function StrOrNum(StrONum){
         return position;
     }
     else {
-        let reversedNum =  parseFloat(StrONum.toString().split('').reverse().join('')) * Math.sign(StrONum)
+        let reversedNum = parseFloat(StrONum.toString().split('').reverse().join('')) * Math.sign(StrONum)
         return reversedNum;
-}
+    }
 }
 console.log(StrOrNum("dfdfdfoi"));
 /**
@@ -93,18 +93,18 @@ console.log(StrOrNum("dfdfdfoi"));
 const readline = require('readline').createInterface({
     input: process.stdin,
     output: process.stdout
-    })
-guess = ()=>{
+})
+guess = () => {
     let randomNum = Math.floor(Math.random() * 10) + 1;
-    readline.question(`What's your guess`, (number) =>{
+    readline.question(`What's your guess`, (number) => {
         console.log(`You guessed ${number}`);
-    
-    if (number == randomNum) {
-        console.log("You guessed it right!");
-    }
-    else {
-        console.log("You guessed it wrong!");
-    }
+
+        if (number == randomNum) {
+            console.log("You guessed it right!");
+        }
+        else {
+            console.log("You guessed it wrong!");
+        }
     });
 }
 guess();
@@ -113,7 +113,7 @@ guess();
  * Problem 7
  * 
  */
-let check =(arr)=> {
+let check = (arr) => {
     if (arr.length >= 2) {
         if (arr[0] == 10 || arr[arr.length - 1] == 10) {
             return true;
