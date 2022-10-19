@@ -7,10 +7,10 @@ import { FlatList } from 'react-native';
  */
 export default function StudentRecord() {
   const students = [
-    { name: 'John', id: 1, image: require('../assets/adaptive-icon.png') },
-    { name: 'Smith', id: 2, image: require('../assets/favicon.png') },
-    { name: 'Peter', id: 3, image: require('../assets/favicon.png') },
-    { name: 'John', id: 4, image: require('../assets/favicon.png') },
+    { name: 'Taimoor', id: 1, image: require('../assets/adaptive-icon.png') },
+    { name: 'Waqas', id: 2, image: require('../assets/favicon.png') },
+    { name: 'Kashif', id: 3, image: require('../assets/favicon.png') },
+    { name: 'Umair', id: 4, image: require('../assets/favicon.png') },
   ]
 
   return (
@@ -44,9 +44,9 @@ const styles = StyleSheet.create({
   },
   ImageClass:
   {
-    // Setting up image width.
+
     width: 502,
-    // Setting up image height.
+    
     height: 44
 
   }
