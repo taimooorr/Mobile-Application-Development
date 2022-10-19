@@ -4,7 +4,7 @@ import { FlatList } from 'react-native';
 /**
  * show data of 10b students in flat list react native
  */
-export default function StudentRecord() {
+export default function StudentRecordList() {
   const records = [
     { name: 'Ali', age: 20, id: '1' },
     { name: 'Ahmed', age: 21, id: '2' },
@@ -19,11 +19,11 @@ export default function StudentRecord() {
 
   ]
   return (
-    <FlatList
+    <FlatList style={styles.flatListStyle}
       data={records}
       renderItem={({ item }) => {
         return (
-          <Text style={styles.textStyle}>{item.name} - {item.age}</Text>
+          <Text style={styles.textStyle}>{item.name}     {item.age}</Text>
         )
       }}
     />
@@ -31,6 +31,17 @@ export default function StudentRecord() {
 };
 const styles = StyleSheet.create({
   textStyle: {
+    fontSize: 20,
+    backgroundColor: 'lightblue',
     fontSize: 18,
+    borderColor: 'black',
+    borderWidth: 1,
   },
+  flatListStyle: { 
+    marginTop: 25,
+    borderColor: 'black',
+    borderWidth: 1,
+    width: "100%",
+    height: 300,
+  }
 });
