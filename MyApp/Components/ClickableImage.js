@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, StyleSheet,TouchableOpacity,Image } from 'react-native';
+import { Text, StyleSheet,TouchableOpacity,Image, ImageBackground } from 'react-native';
 import { FlatList } from 'react-native';
 /**
  * show images in flat list react native
@@ -22,10 +22,9 @@ export default function StudentRecord () {
             console.log(item.name+"  ID:"+item.id);
           }}>
 
-            <Image style={styles.ImageClass} source={item.image}>
-              
-            </Image>
-            <Text style={styles.textStyle}>{item.name}</Text>
+            <ImageBackground style={styles.ImageClass} source={item.image}>
+              <Text style={styles.text}>{item.name}</Text>
+            </ImageBackground>
 
         </TouchableOpacity> 
         )

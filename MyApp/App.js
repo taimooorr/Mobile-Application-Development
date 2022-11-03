@@ -4,15 +4,15 @@ import {
   Text,
   View
 } from 'react-native';
-import React from 'react';
-import WelcomeScreen from './Components/WelcomeScreen';
+import StudentRecordList from './Components/flat10Students';
 import StudentRecord from './Components/ClickableImage';
-import Contact from './Components/WelcomeScreen';
+import ContactsData from './Components/ContactsData';
+
 
 export default function App() {
   return (
     <View style={styles.container}>
-  <Contact></Contact>
+      <ContactsData/>
     </View>
   );
 }
