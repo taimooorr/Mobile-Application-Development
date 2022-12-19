@@ -1,101 +1,96 @@
 import {
-  View,
-  Text,
-  StyleSheet,
+  View, StyleSheet,
+  FlatList,
   TouchableOpacity,
-  TouchableHighlight,
-  FlatList
+  TextInput,
+  Button, Text
 } from 'react-native';
-import { useState } from 'react';
-import React from 'react';
-/**
- * Design screen and use state to save contacts data
- */
+import React, { useState } from 'react';
 export default function ContactsData() {
-  const ContactsData = [
-    {
-      name: "Ali Khan",
-      phone: "0300-1234567",
-    },
-    {
-      name: "Malik Waqas",
-      phone: "0300-1234567",
-    },
-    {
-      name: " Taimoor",
-      phone: "0300-1234567",
-    },
-    {
-      name: "Umair",
-      phone: "0300-1234567",
-    },
-  ];
 
+  let ConsData = [
+    {
+      id: 1,
+      Name: "John",
+      Number: "0300-1234567"
+    },
+    {
+      id: 2,
+      Name: "Alex",
+      Number: "0300-1234567"
+    },
+    {
+      id: 3,
+      Name: "Ali",
+      Number: "0300-1234567"
+    },
+    {
+      id: 4,
+      Name: "Rohit",
+      Number: "0300-1234567"
+    },
+  ]
 
-    /**
-     * use state and show edit and delete button on long press
-     */
+  const [name, setName] = useState(ConsData);
+  const [number, setNumber] = useState(ConsData);
+  return (
 
-  }
-  const Item = ({ name }) => (
-    <View style={styles.item}>
-      <Text style={styles.Name}>{name}</Text>
+    <View style={styles.container} >
+      <View style={styles.two} >
+        <FlatList
+          data={ConsData}
+          keyExtractor={item => item.id}
+          renderItem={({ item }) => (
+            <TouchableOpacity onLongPress={
+              () => {
+                setName(item.Name)
+                setNumber(item.Number)
+              }
+            } style={styles.item}>
+              <Text style={styles.textStyle}>{item.Name}</Text>
+            </TouchableOpacity>
+          )}
+        />
+      </View>
+      <View style={styles.two}>
+        <View >
+          <TextInput style={styles.input} value={name} onChangeText={(newText) => { setName(newText) }} placeholder='Name' ></TextInput>
+          <TextInput style={styles.input} value={number} onChangeText={(newPhone) => { setNumber(newPhone) }} placeholder='Phone number' ></TextInput>
+          <Button title="Edit" ></Button>
+        </View>
+      </View>
     </View>
-  );
-  const Flat = () => {
-    const renderItem = ({ item }) => (
-      <Item name={item.name} />
-    );
-
-    return (
-      <>
-        <SafeAreaView >
-          <FlatList
-            data={DATA}
-            renderItem={renderItem}
-            keyExtractor={item => item.name}
-
-          />
-          <TextInput style={styles.txt} placeholder='Name' ></TextInput>
-          <TextInput style={styles.txt} placeholder='Phonenumber' ></TextInput>
-          <TouchableOpacity
-            style={{
-              width: 100,
-              height: 25,
-              borderRadius: 2,
-              borderWidth: 2,
-              textAlign: "center",
-
-            }}
-          >Edit</TouchableOpacity>
-        </SafeAreaView>
-
-      </>
-
-
-    );
+  )
 
 }
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     width: "100%",
   },
-  textStyle: {
-    fontSize: 14,
-    fontWeight: 'bold',
-    color: 'black',
-  },
-  ImageClass:
-  {
-    alignContent: 'center',
-    // Setting up image width.
+  two: {
+    flex: 0.7,
     width: "100%",
-    // Setting up image height.#
+  },
+  item: {
+    width: "100%",
     top: 25,
-    left: 5,
     height: 45,
-    borderBottomColor: 'grey',
-    borderBottomWidth: 1.5,
+    borderColor: 'grey',
+    borderWidth: 1,
+    marginBottom: 3
+
+  },
+  textStyle: {
+    fontSize: 20,
+  },
+  input: {
+    alignItems: 'center',
+    borderColor: 'grey',
+    borderWidth: 1,
+    height: 45,
+    fontSize: 20,
   }
+
 })

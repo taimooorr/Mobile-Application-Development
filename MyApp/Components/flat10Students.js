@@ -19,8 +19,10 @@ export default function StudentRecordList() {
 
   ]
   return (
+    
     <FlatList style={styles.flatListStyle}
       data={records}
+      keyExtractor={item => item.id}
       renderItem={({ item }) => {
         return (
           <Text style={styles.textStyle}>{item.name}     {item.age}</Text>
